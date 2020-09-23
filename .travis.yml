@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.8"
+
+script:
+  - pip install -r app/configurations/requirements/prod.txt
+  - pip install -r app/configurations/requirements/test.txt
+  - python example/environment.py test
+  - flask db init
+  - flask db migrate
+  - flask db upgrade
+  - coverage run -m pytest
+  - coverage report
+
+after_success:
+  - codecov
