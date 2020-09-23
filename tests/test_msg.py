@@ -5,6 +5,8 @@ This file test Board and Queen funcs
 from . import app, client
 from flask import url_for
 from os import environ
+from models.msg import Msg
+from app.database.db_instance import db
 
 
 def test_pass(app):
@@ -22,5 +24,6 @@ def test_api_get_msgs(client):
 
 
 def test_api_get_msg(client):
+    db.session.add(Msg(name='app'))
     response = client.get(url_for('api_v1.get_msg', id=1))
     assert response.status_code == 200
