@@ -5,7 +5,7 @@ python:
 script:
   - pip install -r app/configurations/requirements/prod.txt
   - pip install -r app/configurations/requirements/test.txt
-  - python example/environment.py test
+  - python app/commands/environment.py testing
   - flask db init
   - flask db migrate
   - flask db upgrade
