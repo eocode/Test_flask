@@ -10,7 +10,7 @@ class Msg(db.Model):
     __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(120), unique=True, nullable=True)
+    name = Column(String(120), nullable=True)
     created_at = db.Column(DateTime, server_default=db.func.now(), nullable=False)
     updated_at = db.Column(
         DateTime, server_default=db.func.now(), server_onupdate=db.func.now()

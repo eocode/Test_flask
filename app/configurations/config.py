@@ -29,6 +29,7 @@ class TestingConfig(Config):
     """Testing configuration with sqlite as database"""
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/test.db"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 # Dictionary with available environments

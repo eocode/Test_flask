@@ -32,6 +32,7 @@ def create_app(environment):
         application.register_blueprint(api_v1)
         db.init_app(application)
         Migrate(application, db)
+        db.create_all()
 
     return application
 
